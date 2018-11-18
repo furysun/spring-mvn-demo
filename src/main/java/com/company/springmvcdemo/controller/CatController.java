@@ -32,7 +32,7 @@ public class CatController {
 
         model.addAttribute("catsList",cats);
 
-        return "cat";
+        return "cat-page";
     }
 }
 
