@@ -1,15 +1,16 @@
 package com.company.springmvcdemo.dto;
 
-public class LoginDTO {
+public class RegistrationDTO {
+    private String name;
     private String login;
     private String password;
 
-    public LoginDTO(String login, String password) {
-        this.login = login;
-        this.password = password;
+    public String getName() {
+        return name;
     }
 
-    public LoginDTO() {
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getLogin() {
@@ -30,8 +31,9 @@ public class LoginDTO {
 
     @Override
     public String toString() {
-        return "LoginDTO{" +
-                "login='" + login + '\'' +
+        return "RegistrationDTO{" +
+                "name='" + name + '\'' +
+                ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
                 '}';
     }
