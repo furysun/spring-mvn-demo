@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
     @GetMapping("/login")
-    public String greeting(Model model) {
+    public String getLoginPage(Model model) {
         model.addAttribute("loginDTO", new LoginDTO());
 
         return "login";
     }
 
     @PostMapping("/login")
-    public String catFormSubmit(@ModelAttribute LoginDTO loginDTO) {
+    public String login(@ModelAttribute LoginDTO loginDTO) {
         System.out.println(loginDTO);
         return "login";
     }

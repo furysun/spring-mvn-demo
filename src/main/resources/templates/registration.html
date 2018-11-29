@@ -9,16 +9,14 @@
 
 <form th:action="@{/registration}" th:object="${registrationDTO}" method="post">
     <p>name: </p>
-    <input type="text" name="Name" value="name"/>
-    <p>last name: </p>
-    <input type="text" name="Name" value="last name"/>
+    <input type="text" th:field="*{name}"/>
     <p>login: </p>
     <input type="text" th:field="*{login}"/>
     <p>password: </p>
     <input type="password" th:field="*{password}"/>
 
     <p>confirm password: </p>
-    <input type="password" th:field="*{password}"/>
+    <input type="password" th:field="*{passwordConfirmation}"/>
 
     <input type="submit" name="ok"/>
 

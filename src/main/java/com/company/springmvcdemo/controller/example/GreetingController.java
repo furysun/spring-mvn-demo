@@ -1,4 +1,4 @@
-package com.company.springmvcdemo.controller;
+package com.company.springmvcdemo.controller.example;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

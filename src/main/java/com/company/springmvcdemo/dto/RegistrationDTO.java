@@ -4,6 +4,15 @@ public class RegistrationDTO {
     private String name;
     private String login;
     private String password;
+    private String passwordConfirmation;
+
+    public String getPasswordConfirmation() {
+        return passwordConfirmation;
+    }
+
+    public void setPasswordConfirmation(String passwordConfirmation) {
+        this.passwordConfirmation = passwordConfirmation;
+    }
 
     public String getName() {
         return name;
@@ -35,6 +44,7 @@ public class RegistrationDTO {
                 "name='" + name + '\'' +
                 ", login='" + login + '\'' +
                 ", password='" + password + '\'' +
+                ", passwordConfirmation='" + passwordConfirmation + '\'' +
                 '}';
     }
 }
