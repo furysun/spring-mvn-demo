@@ -1,4 +1,4 @@
-package com.company.springmvcdemo.controller;
+package com.company.springmvcdemo.dao;
 
 import com.company.springmvcdemo.domain.Role;
 import com.company.springmvcdemo.domain.User;
