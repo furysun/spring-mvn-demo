@@ -3,6 +3,7 @@ package com.company.springmvcdemo.controller;
 import com.company.springmvcdemo.domain.User;
 import com.company.springmvcdemo.dto.LoginDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LoginController {
+    private final String FIND_USER_BY_LOGIN_AND_PASSWORD = "select * from USERS where LOGIN =? and PASSWORD =?;";
+
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -23,14 +27,25 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute LoginDTO loginDTO) {
-        System.out.println(loginDTO);
+    public String login(@ModelAttribute LoginDTO loginDTO, Model model) {
+        User user = findUserByLoginAndPassword(loginDTO.getLogin(), loginDTO.getPassword());
+        if(user==null){
+           model.addAttribute("error",true);
+           return "login";
+        }
 
-        String query = "select * from USERS where LOGIN =? and PASSWORD =?;";
+        return "users";
+    }
 
-        User user = (User) jdbcTemplate.queryForObject(query,new Object[]{"user","user"},new UserRowMapper());
-
-        System.out.println(user);
-        return "login";
+    private User findUserByLoginAndPassword(String login, String password) {
+        try {
+            return (User) jdbcTemplate.queryForObject(
+                    FIND_USER_BY_LOGIN_AND_PASSWORD,
+                    new Object[]{login, password},
+                    new UserRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 }
