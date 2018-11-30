@@ -1,6 +1,7 @@
 package com.company.springmvcdemo.domain;
 
-public class User {
+public class
+User {
     private long id;
     private String name;
     private String login;
@@ -45,5 +46,16 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
     }
 }

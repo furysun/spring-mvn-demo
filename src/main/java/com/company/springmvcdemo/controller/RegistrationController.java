@@ -23,7 +23,7 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String register(@ModelAttribute RegistrationDTO registrationDTO) {
-        System.out.println(registrationDTO);
+            System.out.println(registrationDTO);
         jdbcTemplate.execute("select * from USERS");
         return "registration";
     }
