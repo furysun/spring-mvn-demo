@@ -9,6 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDao {
     private static final String FIND_USER_BY_LOGIN_AND_PASSWORD = "select * from USERS where LOGIN =? and PASSWORD =?;";
+    private static final String CREATE_USER = "INSERT INTO USERS (NAME, LOGIN, PASSWORD, ROLE) VALUES (?, ?, ?, 'USER');";
+
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
@@ -22,5 +24,9 @@ public class UserDao {
         } catch (EmptyResultDataAccessException e) {
             return null;
         }
+    }
+
+    public void createUser(User user) {
+        jdbcTemplate.update(CREATE_USER, user.getName(), user.getLogin(), user.getPassword());
     }
 }

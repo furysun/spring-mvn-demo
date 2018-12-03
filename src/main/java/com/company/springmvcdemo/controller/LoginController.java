@@ -5,8 +5,6 @@ import com.company.springmvcdemo.domain.User;
 import com.company.springmvcdemo.dto.LoginDTO;
 import com.company.springmvcdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
