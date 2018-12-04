@@ -6,7 +6,6 @@ import com.company.springmvcdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -27,6 +26,13 @@ public class RegistrationController {
     public String register(@ModelAttribute RegistrationDTO registrationDTO, Model model) {
         if (!registrationDTO.getPassword().equals(registrationDTO.getPasswordConfirmation())) {
             model.addAttribute("error", true);
+            return "registration";
+        }
+
+        User existentUser = userService.findUserByLogin(registrationDTO.getLogin());
+
+        if(existentUser!=null){
+            model.addAttribute("suchLoginIsBusy", true);
             return "registration";
         }
 

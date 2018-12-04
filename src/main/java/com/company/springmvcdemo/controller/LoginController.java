@@ -33,7 +33,8 @@ public class LoginController {
         }
 
         if (user.getRole() == Role.USER) {
-            return "notes";
+
+            return "redirect:/notes";
         } else return "users";
     }
 }

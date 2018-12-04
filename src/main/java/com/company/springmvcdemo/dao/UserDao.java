@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class UserDao {
     private static final String FIND_USER_BY_LOGIN_AND_PASSWORD = "select * from USERS where LOGIN =? and PASSWORD =?;";
+    private static final String FIND_USER_BY_LOGIN = "select * from USERS where LOGIN =?;";
     private static final String CREATE_USER = "INSERT INTO USERS (NAME, LOGIN, PASSWORD, ROLE) VALUES (?, ?, ?, 'USER');";
 
     @Autowired
@@ -19,6 +20,18 @@ public class UserDao {
             return (User) jdbcTemplate.queryForObject(
                     FIND_USER_BY_LOGIN_AND_PASSWORD,
                     new Object[]{login, password},
+                    new UserRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    public User findUserByLogin(String login){
+        try {
+            return (User) jdbcTemplate.queryForObject(
+                    FIND_USER_BY_LOGIN,
+                    new Object[]{login},
                     new UserRowMapper()
             );
         } catch (EmptyResultDataAccessException e) {
