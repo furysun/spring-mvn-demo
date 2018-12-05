@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
 
-<h1>Hi, admin <3 </h1>
+<h1>Hi, <span th:text="${session.userName}" th:unless="${session == null}"></span> <3 </h1>
 
 </body>
 </html>

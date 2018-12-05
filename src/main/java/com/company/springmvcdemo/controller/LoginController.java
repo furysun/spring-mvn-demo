@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
     @Autowired
@@ -24,13 +26,15 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@ModelAttribute LoginDTO loginDTO, Model model) {
+    public String login(@ModelAttribute LoginDTO loginDTO, Model model, HttpSession session) {
         User user = userService.findUserByLoginAndPassword(loginDTO.getLogin(), loginDTO.getPassword());
 
         if (user == null) {
             model.addAttribute("error", true);
             return "login";
         }
+
+        session.setAttribute("userName",user.getName());
 
         if (user.getRole() == Role.USER) {
 
