@@ -5,6 +5,8 @@ import com.company.springmvcdemo.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -17,6 +19,12 @@ public class UserService {
     public User findUserByLogin(String login){
         return userDao.findUserByLogin(login);
     }
+
+
+    public List<User> getAllUsers(){
+        return userDao.getAllUsers();
+    }
+
 
     public void createUser(User user) {
         userDao.createUser(user);
