@@ -1,19 +1,26 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
 </head>
 <body>
 
-<p>Spring mvc demo</p>
+<div class="style-header">
+    <h2 class="text-sty">Spring mvc demo</h2>
+</div>
 
-<!--<a href="/greeting">greeting</a>-->
-<!--<a href="/cat">cat</a>-->
-<!--<a href="/form">form</a>-->
-<!--<a href="/catForm">cat form</a>-->
-<a href="/login">login</a>
-<a href="/registration">registration</a>
+    <div class="menu">
+        <ul style="list-style-type:none">
+            <li><a href="/login">login</a></li>
+            <li><a href="/registration">registration</a></li>
+        </ul>
+    </div>
+
+
+<footer>
+    <h2 class="text-sty">work hard or go home</h2>
+</footer>
 
 </body>
 </html>

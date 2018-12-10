@@ -2,11 +2,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
+
 </head>
 <body>
 
 <div th:replace="fragments/header.html :: header"></div>
-<h1>USERS</h1>
+
+<div class="style-header">
+    <h2 class="text-sty">USERS</h2>
+</div>
 
 <table>
     <tr>
@@ -23,6 +28,8 @@
         <td th:text="${user.role}"></td>
     </tr>
 </table>
-
+<footer>
+    <h2 class="text-sty">work hard or go home</h2>
+</footer>
 </body>
 </html>
