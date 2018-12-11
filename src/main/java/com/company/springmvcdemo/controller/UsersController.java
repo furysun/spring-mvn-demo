@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 @Controller
-public class UserController {
+public class UsersController {
     @Autowired
     private UserService userService;
 
@@ -20,8 +20,7 @@ public class UserController {
         System.out.println("redirection users works");
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
-        System.out.println("work?"+users);
+        System.out.println("work?" + users);
         return "users";
-
     }
 }

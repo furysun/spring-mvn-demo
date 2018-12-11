@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:border-collapse="http://java.sun.com/xml/ns/persistence/orm">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
@@ -28,8 +28,12 @@
         <td th:text="${user.role}"></td>
     </tr>
 </table>
+
+<a href="/createUser">createUser</a>
+
 <footer>
     <h2 class="text-sty">work hard or go home</h2>
 </footer>
+
 </body>
 </html>
