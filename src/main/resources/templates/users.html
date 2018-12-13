@@ -12,24 +12,22 @@
 <div class="style-header">
     <h2 class="text-sty">USERS</h2>
 </div>
+    <table>
+        <tr class="head-table">
+            <th>id</th>
+            <th>name</th>
+            <th>login</th>
+            <th>role</th>
+        </tr>
+        <tr class="change-color" th:each="user :${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.login}"></td>
+            <td th:text="${user.role}"></td>
+        </tr>
+    </table>
 
-<table>
-    <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>login</th>
-        <th>role</th>
-    </tr>
-
-    <tr th:each="user :${users}">
-        <td th:text="${user.id}"></td>
-        <td th:text="${user.name}"></td>
-        <td th:text="${user.login}"></td>
-        <td th:text="${user.role}"></td>
-    </tr>
-</table>
-
-<a href="/createUser">createUser</a>
+    <a href="/createUser">createUser</a>
 
 <footer>
     <h2 class="text-sty">work hard or go home</h2>

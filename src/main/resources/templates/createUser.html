@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Create user</title>
+    <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
+
 </head>
 <body>
-<h2> Create user </h2>
+
+<div class="style-header">
+    <h2 class="text-sty">Create user</h2>
+</div>
 
 <form method="post" th:action="@{/createUser}" th:object="${user}">
     <input type="text" th:field="*{name}"/>
@@ -17,8 +22,12 @@
         <option value="ADMIN">ADMIN</option>
         <option value="USER">USER</option>
     </select>
-    <input type="submit" value="add">
+    <input class="input-sub" type="submit" value="add">
 </form>
+
+<footer>
+    <h2 class="text-sty">work hard or go home</h2>
+</footer>
 
 </body>
 </html>

@@ -11,61 +11,79 @@
     padding: 30px;
 }
 
-table, th, td {
-    border: 1px solid powderblue;
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 7px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.head-table {
+    background-color: powderblue;
+}
+
+.change-color:hover {
+    background-color: #f5f5f5;
 }
 
 a:link, a:visited {
     background-color: powderblue;
     color: white;
     padding: 14px 25px;
-    width: 150px;
+    width: 200px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
 }
 
-input[type=text], select {
-    width: 50%;
+.input-login {
+    width: 200px;
     padding: 12px 20px;
-    margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
-    border-radius: 4px;
     box-sizing: border-box;
 }
 
-input[type=password], select {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+p {
+    margin: 8px
 }
 
-input[type=submit] {
-    width: 50%;
+.content {
+    padding: 10px;
+}
+
+.input-sub[type=submit] {
+    padding: 14px 25px;
+    width: 200px;
+    margin: 4px;
     background-color: powderblue;
     color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 0px;
     cursor: pointer;
 }
 
-input[type=submit]:hover {
-    background-color: powderblue;
+.input-sub[type=submit]:hover {
+    background-color: pink;
+    color: white;
 }
 
-li{
+li {
     padding: 2px;
 }
 
 a:hover, a:active {
     background-color: #FFC0CB;
+}
+
+.center {
+    position: center;
+    text-align: center;
 }
 
 footer {

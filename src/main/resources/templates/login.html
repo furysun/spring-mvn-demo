@@ -1,26 +1,29 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
 
 </head>
 <body>
-    <div class="style-header">
-        <h2 class="text-sty">login</h2>
-    </div>
+<div class="style-header">
+    <h2 class="text-sty">login</h2>
+</div>
 
-<form th:action="@{/login}" th:object="${loginDTO}" method="post">
+<div class="center">
+    <form th:action="@{/login}" th:object="${loginDTO}" method="post">
 
-    <input type="text" th:field="*{login}"/>
-    <input type="password" th:field="*{password}"/>
+        <p><input placeholder="login"  class="input-login" type="text" th:field="*{login}"/></p>
+        <p> <input placeholder="password" class="input-login" type="password" th:field="*{password}"/></p>
 
-    <input type="submit" name="ok"/>
-</form>
+        <input class="input-sub" type="submit" name="ok"/>
+    </form>
 
-<p th:if="${error}">invalid login or password</p>
-    <footer>
-        <h2 class="text-sty">work hard or go home</h2>
-    </footer>
+    <p th:if="${error}">invalid login or password</p>
+</div>
+
+<footer>
+    <h2 class="text-sty">work hard or go home</h2>
+</footer>
 </body>
 </html>
