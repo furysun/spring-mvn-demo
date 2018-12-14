@@ -30,7 +30,6 @@ public class RegistrationController {
         }
 
         User existentUser = userService.findUserByLogin(registrationDTO.getLogin());
-
         if(existentUser!=null){
             model.addAttribute("suchLoginIsBusy", true);
             return "registration";
@@ -44,7 +43,7 @@ public class RegistrationController {
 
         userService.createUser(user);
 
-        return "registration";
+        return "redirect:/login";
     }
 }
 

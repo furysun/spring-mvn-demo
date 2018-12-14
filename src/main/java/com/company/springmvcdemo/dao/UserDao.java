@@ -14,6 +14,8 @@ public class UserDao {
     private static final String FIND_USER_BY_LOGIN = "select * from USERS where LOGIN =?;";
     private static final String CREATE_USER = "INSERT INTO USERS (NAME, LOGIN, PASSWORD, ROLE) VALUES (?, ?, ?, 'USER');";
     private static final String FIND_ALL_USERS = "select * from USERS;";
+    private static final String DELETE_BY_ID = "DELETE FROM USERS WHERE ID=?;";
+
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -55,5 +57,9 @@ public class UserDao {
 
     public void createUser(User user) {
         jdbcTemplate.update(CREATE_USER, user.getName(), user.getLogin(), user.getPassword());
+    }
+
+    public void deleteUser(String id){
+        jdbcTemplate.update(DELETE_BY_ID, id);
     }
 }

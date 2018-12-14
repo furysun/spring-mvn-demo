@@ -29,4 +29,9 @@ public class UserService {
     public void createUser(User user) {
         userDao.createUser(user);
     }
+
+    public void deleteUser(String id){
+        // TODO delete user notes before user
+        userDao.deleteUser(id);
+    }
 }

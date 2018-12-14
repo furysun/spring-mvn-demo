@@ -13,7 +13,7 @@
     <h2 class="text-sty">Create user</h2>
 </div>
 
-<form method="post" th:action="@{/createUser}" th:object="${user}">
+<form method="post" th:action="@{/user}" th:object="${user}">
     <p>
         <input placeholder=" name" class="input-login" type="text" th:field="*{name}"/>
     </p>

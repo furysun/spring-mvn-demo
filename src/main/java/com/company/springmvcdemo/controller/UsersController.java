@@ -20,7 +20,6 @@ public class UsersController {
         System.out.println("redirection users works");
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
-        System.out.println("work?" + users);
         return "users";
     }
 }

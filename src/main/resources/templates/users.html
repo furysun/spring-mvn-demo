@@ -12,22 +12,29 @@
 <div class="style-header">
     <h2 class="text-sty">USERS</h2>
 </div>
-    <table>
-        <tr class="head-table">
-            <th>id</th>
-            <th>name</th>
-            <th>login</th>
-            <th>role</th>
-        </tr>
-        <tr class="change-color" th:each="user :${users}">
-            <td th:text="${user.id}"></td>
-            <td th:text="${user.name}"></td>
-            <td th:text="${user.login}"></td>
-            <td th:text="${user.role}"></td>
-        </tr>
-    </table>
+<table>
+    <tr class="head-table">
+        <th>id</th>
+        <th>name</th>
+        <th>login</th>
+        <th>role</th>
+    </tr>
+    <tr class="change-color" th:each="user :${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.login}"></td>
+        <td th:text="${user.role}"></td>
+        <td>
+            <form th:action="@{/deleteUser}" method="post">
+                <input type="hidden" th:value="${user.id}" name="id"/>
+                <input type="submit" value="X" name="delete"/>
+            </form>
+        </td>
+    </tr>
 
-    <a href="/createUser">createUser</a>
+</table>
+
+<a href="/createUser">createUser</a>
 
 <footer>
     <h2 class="text-sty">work hard or go home</h2>
