@@ -32,6 +32,7 @@ th, td {
 }
 
 a:link, a:visited {
+    border-radius: 5px;
     background-color: powderblue;
     color: white;
     padding: 11px 1px;
@@ -40,8 +41,12 @@ a:link, a:visited {
     text-decoration: none;
     display: inline-block;
 }
-
+.drop-role{
+    width: 200px;
+    height: 40px;
+}
 .input-login {
+    border-radius: 5px;
     width: 200px;
     padding: 12px 2px;
     display: inline-block;
@@ -58,6 +63,7 @@ p {
 }
 
 .input-sub[type=submit] {
+    border-radius: 5px;
     padding: 14px 25px;
     width: 200px;
     margin: 4px;

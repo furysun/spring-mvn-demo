@@ -14,15 +14,24 @@
 </div>
 
 <form method="post" th:action="@{/createUser}" th:object="${user}">
-    <input type="text" th:field="*{name}"/>
-    <input type="text" th:field="*{login}"/>
-    <input type="text" th:field="*{password}"/>
-
-    <select th:field="*{role}">
-        <option value="ADMIN">ADMIN</option>
-        <option value="USER">USER</option>
-    </select>
-    <input class="input-sub" type="submit" value="add">
+    <p>
+        <input placeholder=" name" class="input-login" type="text" th:field="*{name}"/>
+    </p>
+    <p>
+        <input placeholder=" login" class="input-login" type="text" th:field="*{login}"/>
+    </p>
+    <p>
+        <input placeholder=" password" class="input-login" type="text" th:field="*{password}"/>
+    </p>
+    <p>
+        <select class="drop-role" th:field="*{role}">
+            <option value="ADMIN">ADMIN</option>
+            <option value="USER">USER</option>
+        </select>
+    <p/>
+    <p>
+        <input class="input-sub" type="submit" value="add">
+    </p>
 </form>
 
 <footer>
