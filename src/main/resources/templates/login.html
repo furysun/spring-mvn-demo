@@ -13,10 +13,10 @@
 <div class="center">
     <form th:action="@{/login}" th:object="${loginDTO}" method="post">
 
-        <p><input placeholder="login"  class="input-login" type="text" th:field="*{login}"/></p>
-        <p> <input placeholder="password" class="input-login" type="password" th:field="*{password}"/></p>
+        <p><input placeholder=" login"  class="input-login" type="text" th:field="*{login}"/></p>
+        <p> <input placeholder=" password" class="input-login" type="password" th:field="*{password}"/></p>
 
-        <input class="input-sub" type="submit" name="ok"/>
+        <input class="input-sub" type="submit" value="ok" name="ok"/>
     </form>
 
     <p th:if="${error}">invalid login or password</p>

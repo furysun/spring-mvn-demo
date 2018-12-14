@@ -34,7 +34,7 @@ th, td {
 a:link, a:visited {
     background-color: powderblue;
     color: white;
-    padding: 14px 25px;
+    padding: 11px 1px;
     width: 200px;
     text-align: center;
     text-decoration: none;
@@ -43,7 +43,7 @@ a:link, a:visited {
 
 .input-login {
     width: 200px;
-    padding: 12px 20px;
+    padding: 12px 2px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -64,7 +64,6 @@ p {
     background-color: powderblue;
     color: white;
     border: none;
-    border-radius: 0px;
     cursor: pointer;
 }
 

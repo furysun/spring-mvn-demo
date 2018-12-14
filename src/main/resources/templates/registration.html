@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../static/css/main.css" th:href="@{/css/main.css}" rel="stylesheet">
 
 </head>
@@ -10,28 +10,37 @@
 <div class="style-header">
     <h2 class="text-sty">Registration</h2>
 </div>
-<form th:action="@{/registration}" th:object="${registrationDTO}" method="post">
-    <input type="text" th:field="*{name}"/>
-    <p>login: </p>
-    <input type="text" th:field="*{login}"/>
-    <p>password: </p>
-    <input type="password" th:field="*{password}"/>
 
-    <p>confirm password: </p>
-    <input type="password" th:field="*{passwordConfirmation}"/>
+<div class="content">
+    <form th:action="@{/registration}" th:object="${registrationDTO}" method="post">
+        <div class="registration-inputs">
+            <p>
+                <input  class="input-login" placeholder=" name" type="text" th:field="*{name}"/>
+            </p>
+            <p>
+                <input  class="input-login" placeholder=" login" type="text" th:field="*{login}"/>
+            </p>
+            <p>
+                <input  class="input-login" placeholder=" password" type="password" th:field="*{password}"/>
+            </p>
+            <p>
+                <input  class="input-login"  placeholder=" confirm password" type="password" th:field="*{passwordConfirmation}"/>
+            </p>
+        </div>
 
-    <input type="submit" name="ok"/>
+        <div class="registration-buttons">
+            <a href="/">go back</a>
+            <input class="input-sub" type="submit" name="ok" value="ok"/>
+        </div>
 
-    <button>
-    <a href="/">go back</a>
-    </button>
-
-    <p th:if="${error}">passwords don't match</p>
-    <p th:if="${suchLoginIsBusy}">such Login Is Bus</p>
-</form>
+        <p th:if="${error}">passwords don't match</p>
+        <p th:if="${suchLoginIsBusy}">such Login Is Bus</p>
+    </form>
+</div>
 
 <footer>
     <h2 class="text-sty">work hard or go home</h2>
 </footer>
+
 </body>
 </html>
