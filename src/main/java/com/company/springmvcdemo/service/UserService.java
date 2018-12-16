@@ -31,7 +31,16 @@ public class UserService {
     }
 
     public void deleteUser(String id){
-        // TODO delete user notes before user
+        // TODO delete user notes before userq
         userDao.deleteUser(id);
     }
+
+    public User findById(String id){
+       return userDao.findById(id);
+    }
+
+    public void updateUser(User user){
+        userDao.updateUser(user);
+    }
+
 }

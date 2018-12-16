@@ -10,10 +10,12 @@
 <body>
 
 <div class="style-header">
-    <h2 class="text-sty">Create user</h2>
+    <h2 th:if="!${isEdit}" class="text-sty">Create user</h2>
+    <h2 th:if="${isEdit}" class="text-sty">Edit user</h2>
 </div>
 
-<form method="post" th:action="@{/user}" th:object="${user}">
+<form method="post" th:action="${isEdit}?@{/editUser}:@{/user}" th:object="${user}">
+    <input th:if="${isEdit}" type="hidden" th:field="*{id}"/>
     <p>
         <input placeholder=" name" class="input-login" type="text" th:field="*{name}"/>
     </p>

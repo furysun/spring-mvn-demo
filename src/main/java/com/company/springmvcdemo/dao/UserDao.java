@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ public class UserDao {
     private static final String CREATE_USER = "INSERT INTO USERS (NAME, LOGIN, PASSWORD, ROLE) VALUES (?, ?, ?, 'USER');";
     private static final String FIND_ALL_USERS = "select * from USERS;";
     private static final String DELETE_BY_ID = "DELETE FROM USERS WHERE ID=?;";
+    private static final String FIND_BY_ID = "select * from USERS where ID =?;";
+    private static final String UPDATE = "UPDATE USERS SET NAME=?, LOGIN=?,PASSWORD=?,ROLE=? WHERE ID=?;";
 
 
     @Autowired
@@ -59,7 +62,35 @@ public class UserDao {
         jdbcTemplate.update(CREATE_USER, user.getName(), user.getLogin(), user.getPassword());
     }
 
-    public void deleteUser(String id){
+    public void deleteUser(String id) {
         jdbcTemplate.update(DELETE_BY_ID, id);
+    }
+
+
+    public User findById(String id) {
+        try {
+            return (User) jdbcTemplate.queryForObject(
+                    FIND_BY_ID,
+                    new Object[]{id},
+                    new UserRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
+    }
+
+    @Transactional
+    public void updateUser(User user) {
+        //role enum should be mapped in proper way
+       int a = jdbcTemplate.update(
+                UPDATE,
+                new Object[]{
+                        user.getName(),
+                        user.getLogin(),
+                        user.getPassword(),
+                        user.getRole(),
+                        user.getId()
+                });
+        System.out.println("dao  e "+ a);
     }
 }
