@@ -11,18 +11,21 @@
 </div>
 
 <div class="center">
-    <form th:action="@{/login}" th:object="${loginDTO}" method="post">
+    <form onsubmit="return validate()" th:action="@{/login}" th:object="${loginDTO}" method="post">
 
-        <p><input placeholder=" login"  class="input-login" type="text" th:field="*{login}"/></p>
-        <p> <input placeholder=" password" class="input-login" type="password" th:field="*{password}"/></p>
+        <p><input id="login" placeholder=" login" class="input-login" type="text" th:field="*{login}"/></p>
+        <p><input id="password" placeholder=" password" class="input-login" type="password" th:field="*{password}"/></p>
 
-        <input class="input-sub" type="submit" value="ok" name="ok"/>
+        <input submit="test()" class="input-sub" type="submit" value="ok" name="ok"/>
     </form>
 
     <p th:if="${error}">invalid login or password</p>
+    <p id="errorMessage"></p>
 </div>
 
 <div th:replace="fragments/footer.html :: footer"></div>
+
+<script type="text/javascript" th:src="@{/js/login.js}"></script>
 
 </body>
 </html>
