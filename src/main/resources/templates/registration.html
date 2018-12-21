@@ -12,33 +12,37 @@
 </div>
 
 <div class="content">
-    <form th:action="@{/registration}" th:object="${registrationDTO}" method="post">
+    <form onsubmit="return validate()" th:action="@{/registration}" th:object="${registrationDTO}" method="post">
         <div class="registration-inputs">
             <p>
-                <input  class="input-login" placeholder=" name" type="text" th:field="*{name}"/>
+                <input class="input-login" placeholder=" name" type="text" th:field="*{name}"/>
             </p>
             <p>
-                <input  class="input-login" placeholder=" login" type="text" th:field="*{login}"/>
+                <input class="input-login" placeholder=" login" type="text" th:field="*{login}"/>
             </p>
             <p>
-                <input  class="input-login" placeholder=" password" type="password" th:field="*{password}"/>
+                <input class="input-login" placeholder=" password" type="password" th:field="*{password}"/>
             </p>
             <p>
-                <input  class="input-login"  placeholder=" confirm password" type="password" th:field="*{passwordConfirmation}"/>
+                <input class="input-login" placeholder=" confirm password" type="password"
+                       th:field="*{passwordConfirmation}"/>
             </p>
         </div>
 
         <div class="registration-buttons">
             <a href="/">go back</a>
-            <input class="input-sub" type="submit" name="ok" value="ok"/>
+            <input submit="test2()" class="input-sub" type="submit" name="ok" value="ok"/>
         </div>
 
+        <p id="errorMessage"></p>
         <p th:if="${error}">passwords don't match</p>
         <p th:if="${suchLoginIsBusy}">such Login Is Bus</p>
     </form>
 </div>
 
 <div th:replace="fragments/footer.html :: footer"></div>
+
+<script type="text/javascript" th:src="@{/js/registration.js}"></script>
 
 </body>
 </html>
